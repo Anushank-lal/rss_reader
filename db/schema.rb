@@ -14,21 +14,21 @@
 ActiveRecord::Schema.define(version: 20160711102321) do
 
   create_table "entries", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      limit: 255
     t.datetime "published"
-    t.text     "content"
-    t.string   "url"
-    t.string   "author"
-    t.integer  "feed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "content",    limit: 65535
+    t.string   "url",        limit: 255
+    t.string   "author",     limit: 255
+    t.integer  "feed_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "feeds", force: :cascade do |t|
-    t.string   "url"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "url",         limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
