@@ -22,11 +22,13 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+staging:
   <<: *default
-  database: db/test.sqlite3
+  username: b633fbdb06f07b
+  password: d04d3ae6
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  username: b633fbdb06f07b
+  password: d04d3ae6
 
