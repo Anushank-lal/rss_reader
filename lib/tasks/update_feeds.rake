@@ -1,6 +1,6 @@
 require 'rss'
 require 'open-uri'
-namespace :update_feeds do
+namespace :update do
   task feeds: [:environment] do
     Feed.all.each do |feed|
       open(feed.url) do |rss|
@@ -8,9 +8,7 @@ namespace :update_feeds do
         content.items.each do |item|
           local_entry = feed.entries.where(title: item.title).first_or_initialize
           local_entry.update_attributes(content: item.description, author: item.author, url: item.link, published: item.pubDate)
-          p "Synced Entry - #{item.title}"
         end
-        p "Synced Feed - #{feed.description}"
       end
     end
   end
